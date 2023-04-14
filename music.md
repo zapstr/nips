@@ -22,8 +22,9 @@ Clients should be able to request specific media kinds from relays.
   "byArtist": "Humble Piano",
   "inAlbum": "Reflections",
   "tags": [
-    [ "media", "audio/ogg", "https://zapstr.com/owkRl2sx.ogg"],
-    [ "media", "audio/mpeg", "https://zapstr.com/kd923ksV.mp3"],
+    [ "media", "audio/ogg", "https://zapstr.com/owkRl2sx.ogg", "Low" ],
+    [ "media", "audio/mpeg", "https://zapstr.com/kd923ksV.mp3", "HiRes" ],
+    [ "media", "audio/flac", "https://zapstr.com/Bj9S2s8j.flac", "Lossless" ],
     [ "album", "<album-playlist-id>", "<relay-url>" ],
     [ "zap", "humble-piano-9382@zapstr.com", "lud16" ],
     [ "zap-play", "21000000" ],
@@ -55,8 +56,8 @@ Fields marked (Sch) are taken from https://schema.org/MusicRecording
 
 ```JSON
   "tags": [
-  	[ "media", "<mime-type>", "<url>" ],
-  	[ "media", "<mime-type-2>", "<url-2>" ]
+  	[ "media", "<mime-type>", "<url>", "<quality>" ],
+  	[ "media", "<mime-type-2>", "<url-2>", "<quality-2>" ]
   ]
 ```
 
