@@ -22,9 +22,9 @@ Clients should be able to request specific media kinds from relays.
   "byArtist": "Humble Piano",
   "inAlbum": "Reflections",
   "tags": [
-    [ "media", "audio/ogg", "https://zapstr.com/owkRl2sx.ogg", "Low" ],
-    [ "media", "audio/mpeg", "https://zapstr.com/kd923ksV.mp3", "HiRes" ],
-    [ "media", "audio/flac", "https://zapstr.com/Bj9S2s8j.flac", "Lossless" ],
+    [ "media", "audio/ogg", "https://zapstr.com/m/owkRl2sx.ogg", "Low" ],
+    [ "media", "audio/mpeg", "https://zapstr.com/m/kd923ksV.mp3", "HiRes" ],
+    [ "media", "audio/flac", "https://zapstr.com/m/Bj9S2s8j.flac", "Lossless" ],
     [ "album", "<album-playlist-id>", "<relay-url>" ],
     [ "zap", "humble-piano-9382@zapstr.com", "lud16" ],
     [ "zap-play", "21000000" ],
@@ -61,7 +61,7 @@ Fields marked (Sch) are taken from https://schema.org/MusicRecording
   ]
 ```
 
- - `<mime-type>`: MUST be specified, MUST follow [IANA spec](https://www.iana.org/assignments/media-types/media-types.xhtml#audio), and is used by clients to select the decoding strategy, or to choose an appropriate file to download.
+ - `<mime-type>`: MUST be specified, SHOULD follow a spec, and is used by clients to select the decoding strategy, or to choose an appropriate file to download.
  - `<url>`: the url for this media file
  - `<quality>`: an optional quality description, like `"Hi-Res"` or `"Lossless"`
 
@@ -103,7 +103,6 @@ Allow the publisher to specify a target for zaps related to this music recording
   "tags": [
   	[ "zap", "<address>", "<type>" ]
   ]
-
 ```
 
  - `zap`: see [NIP-57](57.md#appendix-g-zap-tag-on-zapped-event) for the specification of the zap tag.
@@ -146,6 +145,8 @@ If the publisher has specified a `zap` tag it SHOULD take precedence over zappin
 
 The client should try to support giving back in this order:
 
-1. streaming sats per duration according to `sat-stream` tag.
-2. sending a zap on play of the file taking the suggested amount in `zap-play` into consideration (but allowing overrides).
-3. sending a zap to the `zap` target or the publisher profile if the `zap` tag is empty or fails
+1. **streaming sats** if a `sat-stream` tag is present. (allowing override amounts, and lower frequencies). The client SHOULD also send the first payment as a NIP-57 zap to signal to the network that the media has been played.
+2. **zap on play** regardless of the presence of the `zap-play` tag but taking it into consideration (allowing overrides)
+3. **zap like** sending a zap to the `zap` target or the publisher profile if the `zap` tag is empty or fails
+
+The **zap on play** and **zap like** methods use the regular NIP-57 zap mechanism. However **streaming sats** as zaps would create un-necessary congestion on the network.
