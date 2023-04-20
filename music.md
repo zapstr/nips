@@ -22,13 +22,13 @@ Make music tracks first class citizens on nostr.
     [ "media", "audio/ogg", "https://zapstr.com/m/owkRl2sx.ogg", "Low" ],
     [ "media", "audio/mpeg", "https://zapstr.com/m/kd923ksV.mp3", "HiRes" ],
     [ "media", "audio/flac", "https://zapstr.com/m/Bj9S2s8j.flac", "Lossless" ],
-    [ "cover", 
+    [ "cover", "<url>" ],
     [ "zap", "humble-piano-9382@zapstr.com", "lud16" ],
     [ "zap-play", "21000000" ],
     [ "sat-stream", "1000000", "PT1M" ],
     [ "c": "Instrumental" ],
     [ "c", "Ambient Music" ],
-    [ "e", "<eventid1>", "
+    [ "e", "<eventid1>", "component" ],
     [ "duration": "PT4M5S" ]
   ],
   "content:" "Reflection on a sunset walk played on acoustic piano",
@@ -40,6 +40,7 @@ Make music tracks first class citizens on nostr.
 ```
 
 TODO: Define the `p` types (`author`, etc.)
+TODO: Define the `e` types (`component`, `reply`, `root`, etc.)
 
 ## Content
 
