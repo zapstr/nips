@@ -26,7 +26,7 @@ Make music tracks first class citizens on nostr.
     [ "zap", "humble-piano-9382@zapstr.com", "lud16" ],
     [ "zap-play", "21000000" ],
     [ "sat-stream", "1000000", "PT1M" ],
-    [ "c": "Instrumental" ],
+    [ "c", "Instrumental" ],
     [ "c", "Ambient Music" ],
     [ "e", "<eventid1>", "component" ],
     [ "duration", "PT4M5S" ]
