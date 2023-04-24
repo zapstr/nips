@@ -29,18 +29,15 @@ Make music tracks first class citizens on nostr.
     [ "c": "Instrumental" ],
     [ "c", "Ambient Music" ],
     [ "e", "<eventid1>", "component" ],
-    [ "duration": "PT4M5S" ]
+    [ "duration", "PT4M5S" ]
   ],
-  "content:" "Reflection on a sunset walk played on acoustic piano",
+  "content": "Reflection on a sunset walk played on acoustic piano",
   "id": "<event-id>",
   "pubkey": "<pubkey>",
   "sig": "<sig>",
-  "created_at": 1679790774,
+  "created_at": <timestamp>,
 }
 ```
-
-TODO: Define the `p` types (`author`, etc.)
-TODO: Define the `e` types (`component`, `reply`, `root`, etc.)
 
 ## Content
 
@@ -48,10 +45,15 @@ Content might be empty or a string describing the track (*abstract*).
 
 ### Tags
 
-#### Duration (optional)
+#### p
 
-The duration of the track ([Sch](https://schema.org/duration)) in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Durations). this allows playlists and players to show the time before downloading the media file.
+The `p` tags reference the authors of this music track. Clients SHOULD show them in the order in which they appear in the tags. Clients CAN make the author names a clickable link to the author's profile to open in a general nostr client, or alternatively to create a view with other tracks by this author.
 
+TODO: Complete the `p` types (`author`, etc.)
+
+#### e
+
+TODO: Define the `e` types (`component`, `reply`, `root`, etc.)
 
 #### media
 
@@ -67,6 +69,10 @@ The duration of the track ([Sch](https://schema.org/duration)) in [ISO 8601 form
  - `<quality>`: an optional quality description, like `"Hi-Res"` or `"Lossless"`
 
 Publishers can repeat the `media` tag to list multiple files to suite different client capabilities and bandwidth choices.
+
+#### duration (optional)
+
+The duration of the track ([Sch](https://schema.org/duration)) in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Durations). this allows playlists and players to show the time before downloading the media file.
 
 #### c (optional)
 
