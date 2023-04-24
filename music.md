@@ -53,6 +53,14 @@ TODO: Complete the `p` types (`author`, etc.)
 
 #### e
 
+```JSON
+  "tags": [
+  	[ "e", "<event>", "component" ]
+  ]
+```
+
+Additional to the standard use of `e` tags in nostr, a reference to a `"component"` event allows linking to other nostr events that have been used in the composition of this music recording. For example this allows the linking of 'stems' used within this recording (TODO: link to stems NIP).
+
 TODO: Define the `e` types (`component`, `reply`, `root`, etc.)
 
 #### media
